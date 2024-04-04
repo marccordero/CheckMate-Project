@@ -8,13 +8,13 @@ Oletools esta compuesto por las herramientas: Oleid, olevba, MacroRaptor, msodde
 
 Olevba es la herramienta principal de Oletools. Una vez ejecutado Olevba, esta te extrae el código fuente de la macro escrito en visual basic.
 
-![Macro](/images/macro_payload.png)
+![Macro](/Checkmte-Oletools-main/images/macro_payload.png)
 
 Este ejemplo indica que al abrir el documento con Document_Open() se ejecutaría toda la cadena en base64
 
 Lo siguiente que muestra es una tabla de indicadores de compromiso de lo que ejecuta la macro
 
-![IOC1](/images/IOC_table.png)
+![IOC1](/Checkmte-Oletools-main/images/IOC_table.png)
 
 En este ejemplo se puede ver que que hay funciones en base64, que es cierto ya que toda la macro está con el encoding base64. También hay una función Call al principio de la macro que parece que está llamando a la siguiente función. Luego hay otra función que se llama showwindow que puede esconder o mostrar ventanas.
 
@@ -62,11 +62,11 @@ Este pequeño script en bash ubicado en converter/ pedirá el Payload en base64 
 
 `bash decoder.sh`
 
-![Script](/images/decoder_script.png)
+![Script](/Checkmte-Oletools-main/images/decoder_script.png)
 
 Una vez ejecutado el script en el directorio results/ habrá el archivo payload_decoded.txt
 
-![DecodedScript](/images/decoder_result.png)
+![DecodedScript](/Checkmte-Oletools-main/images/decoder_result.png)
 
 ### Ejecutar deofuscador
 
@@ -74,8 +74,8 @@ Dentro del directorio converter/ hay otro script en python que lo que hace es li
 
 `python cleaner.py`
 
-![PythonDeobf](/images/python_script.png)
+![PythonDeobf](/Checkmte-Oletools-main/images/python_script.png)
 
 El script guarda el resultado en el directorio results/ como plaintext_payload.txt
 
-![PlaintextResult](/images/plaintext.png)
+![PlaintextResult](/Checkmte-Oletools-main/images/plaintext.png)
