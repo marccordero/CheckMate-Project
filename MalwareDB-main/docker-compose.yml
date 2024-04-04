@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: websamples
+      MYSQL_USER: bruno
+      MYSQL_PASSWORD: Test123!
+      MYSQL_ROOT_PASSWORD: Test123!*
+    ports:
+      - "3306:3306"
+    restart: always
+
+  www:
+    image: php:8.0-apache
+    container_name: web
+    ports:
+      - "80:80"
+    volumes:
+      - $PWD:/var/www/html
+    links:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 81:80
+    links:
+      - db
+volumes:
+  dbdata:
